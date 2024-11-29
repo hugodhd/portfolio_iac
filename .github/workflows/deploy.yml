@@ -30,16 +30,23 @@ jobs:
 
       # Terraform Init
       - name: Terraform Init
-        run: terraform init
+        run: |
+          cd iac
+          terraform init
 
       # Terraform Plan
       - name: Terraform Plan
-        run: terraform plan \
+        run: |
+          cd iac
+          terraform plan \
           -var "rds_username=${{ secrets.RDS_USERNAME }}" \
           -var "rds_password=${{ secrets.RDS_PASSWORD }}"
 
       # Terraform Apply
       - name: Terraform Apply
-        run: terraform apply -auto-approve \
+        run: |
+          cd iac
+          terraform apply -auto-approve \
           -var "rds_username=${{ secrets.RDS_USERNAME }}" \
           -var "rds_password=${{ secrets.RDS_PASSWORD }}"
+
