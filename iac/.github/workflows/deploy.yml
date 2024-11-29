@@ -26,6 +26,7 @@ jobs:
           RDS_USERNAME: ${{ secrets.RDS_USERNAME }}
           RDS_PASSWORD: ${{ secrets.RDS_PASSWORD }}
         run: echo "Secrets loaded into environment variables"
+    
 
       # Terraform Init
       - name: Terraform Init
