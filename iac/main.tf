@@ -3,8 +3,8 @@ provider "aws" {
 }
 
 # Crear un bucket S3
-resource "aws_s3_bucket" "my_bucket" {
-  bucket = "my-unique-bucket-name"
+resource "aws_s3_bucket" "tfstate_eks" {
+  bucket = "tfstate_eks"
   acl    = "private"
 }
 
@@ -14,6 +14,6 @@ resource "aws_instance" "my_instance" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "MyInstance"
+    name = "default_instance"
   }
 }
